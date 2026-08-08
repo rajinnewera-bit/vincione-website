@@ -1,0 +1,38 @@
+import React from 'react'
+
+const STEPS = [
+  {num: '01', title: 'Understand the Operation', desc: 'Observe how the work actually happens: people, approvals, delays, reports, dependencies and exceptions.'},
+  {num: '02', title: 'Find the Real Problem', desc: 'Separate the visible symptom from the underlying process problem.'},
+  {num: '03', title: 'Structure the Process', desc: 'Define information flow, responsibilities, controls and decision points before building.'},
+  {num: '04', title: 'Build the Smallest Useful System', desc: 'Solve the real problem first instead of creating unnecessary complexity.'},
+  {num: '05', title: 'Measure and Improve', desc: 'Use actual operating behaviour and data to improve the system.'}
+]
+
+export default function Approach() {
+  return (
+    <section id="approach" className="section approach container">
+      <div className="section-head">
+        <div>
+          <h2>How Vinci.One Approaches a Business Problem</h2>
+          <p className="muted">A business does not need software merely because software exists. Start with the operation.</p>
+        </div>
+      </div>
+
+      <div className="process-flow">
+        {STEPS.map(step => (
+          <article className="process-step" key={step.num}>
+            <div className="process-marker">{step.num}</div>
+            <div className="process-content">
+              <h3>{step.title}</h3>
+              <p className="muted">{step.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="approach-statement">
+        <strong>Technology should remove friction from a business — not introduce another layer of it.</strong>
+      </div>
+    </section>
+  )
+}
