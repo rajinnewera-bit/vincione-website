@@ -15,28 +15,20 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="section contact container">
-      <div className="section-head">
-        <div>
-          <h2>Discuss a Business Problem</h2>
-          <p className="muted">If you are dealing with a repetitive process, reporting problem or fragmented workflow, describe the problem first.</p>
-        </div>
-      </div>
+    <section id="contact" className="page-section contact container">
+      <header className="page-header contact-header">
+        <p className="section-kicker">Start a conversation</p>
+        <h1>Discuss a Business Problem</h1>
+        <p className="page-lead">If you are dealing with a repetitive process, reporting problem or fragmented workflow, describe the problem first.</p>
+      </header>
 
       <div className="contact-grid">
         <form onSubmit={mailtoFallback} className="contact-form" aria-label="Contact form">
-          <label>
-            Name
-            <input name="name" value={form.name} onChange={update} />
-          </label>
-          <label>
-            Company / Organisation
-            <input name="company" value={form.company} onChange={update} />
-          </label>
-          <label>
-            Email / Phone
-            <input name="contact" value={form.contact} onChange={update} />
-          </label>
+          <div className="form-row">
+            <label>Name<input name="name" autoComplete="name" value={form.name} onChange={update} /></label>
+            <label>Company / Organisation<input name="company" autoComplete="organization" value={form.company} onChange={update} /></label>
+          </div>
+          <label>Email / Phone<input name="contact" autoComplete="email" value={form.contact} onChange={update} /></label>
           <label>
             What problem are you trying to solve?
             <textarea name="message" rows={6} value={form.message} onChange={update} />
@@ -44,15 +36,17 @@ export default function Contact() {
 
           <div className="form-actions">
             <button className="btn primary" type="submit">Start the Conversation</button>
-            <a className="btn outline" href="https://www.linkedin.com/in/rajdeep-dutta-59ba36394/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
           </div>
         </form>
 
         <div className="contact-details">
-          <h3>Contact</h3>
-          <p className="muted">Email: <a href="mailto:rajinnnewera@gmail.com">rajinnnewera@gmail.com</a></p>
-          <p className="muted">Phone: <a href="tel:+919678139208">+91 96781 39208</a></p>
-          <p className="muted">Location: Guwahati, Assam, India</p>
+          <p className="section-kicker">Direct contact</p>
+          <dl>
+            <div><dt>Email</dt><dd><a href="mailto:rajinnnewera@gmail.com">rajinnnewera@gmail.com</a></dd></div>
+            <div><dt>Phone</dt><dd><a href="tel:+919678139208">+91 96781 39208</a></dd></div>
+            <div><dt>Location</dt><dd>Guwahati, Assam, India</dd></div>
+          </dl>
+          <a className="text-link" href="https://www.linkedin.com/in/rajdeep-dutta-59ba36394/" target="_blank" rel="noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import MobileMenu from './MobileMenu'
 
 const LINKS = [
@@ -17,7 +17,7 @@ export default function Nav() {
   return (
     <header className="nav-root">
       <div className="nav-inner container">
-        <div className="brand">VINCI<span className="brand-dot">.</span>ONE</div>
+        <Link className="brand" to="/" aria-label="Vinci.One home">VINCI<span className="brand-dot">.</span>ONE</Link>
 
         <nav className="nav-links" aria-label="Primary navigation">
           {LINKS.map(([label, href]) => (
@@ -33,7 +33,7 @@ export default function Nav() {
 
         <div className="nav-cta">
           <NavLink className="cta secondary" to="/contact">Discuss a Business Problem</NavLink>
-          <button className="hamburger" aria-label="Open menu" onClick={() => setOpen(true)}>
+          <button className="hamburger" type="button" aria-label="Open menu" aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(true)}>
             <span />
             <span />
             <span />

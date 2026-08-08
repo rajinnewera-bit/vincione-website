@@ -10,13 +10,12 @@ const STEPS = [
 
 export default function Approach() {
   return (
-    <section id="approach" className="section approach container">
-      <div className="section-head">
-        <div>
-          <h2>How Vinci.One Approaches a Business Problem</h2>
-          <p className="muted">A business does not need software merely because software exists. Start with the operation.</p>
-        </div>
-      </div>
+    <section id="approach" className="page-section approach container">
+      <header className="page-header approach-header">
+        <p className="section-kicker">Operating method</p>
+        <h1>How Vinci.One Approaches a Business Problem</h1>
+        <p className="page-lead">A business does not need software merely because software exists. Start with the operation.</p>
+      </header>
 
       <div className="process-flow">
         {STEPS.map(step => (
@@ -31,7 +30,8 @@ export default function Approach() {
       </div>
 
       <div className="approach-statement">
-        <strong>Technology should remove friction from a business — not introduce another layer of it.</strong>
+        <span>Operating principle</span>
+        <strong>Technology should remove friction from a business—not introduce another layer of it.</strong>
       </div>
     </section>
   )

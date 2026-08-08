@@ -1,22 +1,34 @@
 import React from 'react'
 
-export default function ProductCard({ title, label, desc, bullets = [], status }) {
+export default function ProductCard({ title, label, desc, bullets = [], status, featured = false, index }) {
   return (
-    <article className="product-card" aria-labelledby={`p-${title.replace(/\s+/g, '-')}`}>
-      <div className="card-head">
-        <div className="card-title" id={`p-${title.replace(/\s+/g, '-')}`}>{title}</div>
-        <div className="card-label">{label}</div>
+    <article className={`product-card${featured ? ' featured' : ''}`} aria-labelledby={`p-${title.replace(/\s+/g, '-')}`}>
+      <div className="product-identity">
+        <div className="product-index">{index}</div>
+        <div className="card-head">
+          <div className="card-label">{label}</div>
+          <h2 className="card-title" id={`p-${title.replace(/\s+/g, '-')}`}>{title}</h2>
+        </div>
       </div>
-      <p className="card-desc">{desc}</p>
+
+      <div className="product-summary">
+        <p className="product-field-label">System purpose</p>
+        <p className="card-desc">{desc}</p>
+      </div>
 
       {bullets && bullets.length > 0 && (
-        <ul className="card-bullets">
-          {bullets.map((b, i) => <li key={i}>{b}</li>)}
-        </ul>
+        <div className="product-capabilities">
+          <p className="product-field-label">Functional scope</p>
+          <ul className="card-bullets">
+            {bullets.map((b, i) => <li key={i}><span>{String(i + 1).padStart(2, '0')}</span>{b}</li>)}
+          </ul>
+        </div>
       )}
 
-      <div className="card-footer">
-        <div className="status">{status}</div>
+      <div className="product-state">
+        <span className="status-dot" aria-hidden="true" />
+        <span className="product-field-label">Development status</span>
+        <strong>{status}</strong>
       </div>
     </article>
   )

@@ -35,23 +35,30 @@ const SERVICES = [
 
 export default function WhatWeBuild() {
   return (
-    <section id="what-we-build" className="section what-we-build container">
-      <div className="section-head">
-        <div>
-          <h2>What We Build</h2>
-          <p className="muted">Practical systems for businesses that have outgrown disconnected spreadsheets, repetitive processes and fragmented reporting.</p>
-        </div>
+    <section id="what-we-build" className="page-section container">
+      <header className="page-header what-we-build-header">
+        <p className="section-kicker">Capabilities</p>
+        <h1>What We Build</h1>
+        <p className="page-lead">Practical systems for businesses that have outgrown disconnected spreadsheets, repetitive processes and fragmented reporting.</p>
+      </header>
+
+      <div className="capability-intro">
+        <p>Each engagement begins with the operation: where information moves, where decisions slow down and where manual work prevents a clear view of the business.</p>
+        <p className="capability-note">The result is software shaped around the work—not a generic platform imposed on it.</p>
       </div>
 
-      <div className="services-grid">
-        {SERVICES.map(s => (
-          <div className="service" key={s.title}>
-            <h3>{s.title}</h3>
-            <p className="muted">{s.desc}</p>
-            <ul>
+      <div className="capability-list">
+        {SERVICES.map((s, index) => (
+          <article className="capability-row" key={s.title}>
+            <div className="capability-number">{String(index + 1).padStart(2, '0')}</div>
+            <div className="capability-title"><h2>{s.title}</h2></div>
+            <div className="capability-detail">
+              <p>{s.desc}</p>
+              <ul>
               {s.examples.map((e,i)=> <li key={i}>{e}</li>)}
-            </ul>
-          </div>
+              </ul>
+            </div>
+          </article>
         ))}
       </div>
     </section>

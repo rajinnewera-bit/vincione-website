@@ -7,33 +7,32 @@ export default function Home() {
     <div className="home-page">
       <Hero />
 
-      <section className="section page-preview container">
-        <div className="section-head">
-          <div>
-            <h2>What Vinci.One does</h2>
-            <p className="muted">Three concise paths that describe the product focus, systems, and process behind Vinci.One.</p>
-          </div>
+      <section className="page-preview container" aria-labelledby="home-paths-title">
+        <div className="preview-intro">
+          <p className="section-kicker">Explore Vinci.One</p>
+          <h2 id="home-paths-title">From operating problem to working system.</h2>
+          <p>Three concise paths into the capabilities, active products and practical process behind Vinci.One.</p>
         </div>
 
-        <div className="preview-grid">
-          <article className="preview-panel">
-            <h3>What We Build</h3>
-            <p className="muted">Practical systems for businesses that have outgrown disconnected spreadsheets, repetitive processes and fragmented reporting.</p>
-            <Link className="preview-link" to="/what-we-build">Explore What We Build</Link>
-          </article>
+        <nav className="preview-list" aria-label="Explore Vinci.One">
+          <Link className="preview-row" to="/what-we-build">
+            <span className="preview-index">01</span>
+            <span className="preview-copy"><strong>What We Build</strong><span>Practical systems for businesses that have outgrown disconnected spreadsheets, repetitive processes and fragmented reporting.</span></span>
+            <span className="preview-arrow" aria-hidden="true">↗</span>
+          </Link>
 
-          <article className="preview-panel">
-            <h3>Systems already being built</h3>
-            <p className="muted">Active business systems in development for HR, operations and reporting that are grounded in real business work.</p>
-            <Link className="preview-link" to="/products">View Products</Link>
-          </article>
+          <Link className="preview-row" to="/products">
+            <span className="preview-index">02</span>
+            <span className="preview-copy"><strong>Systems already being built</strong><span>Active business systems in development for HR, operations and reporting that are grounded in real business work.</span></span>
+            <span className="preview-arrow" aria-hidden="true">↗</span>
+          </Link>
 
-          <article className="preview-panel">
-            <h3>How Vinci.One works</h3>
-            <p className="muted">A practical, operation-first process that keeps systems useful and focused on actual business needs.</p>
-            <Link className="preview-link" to="/approach">See the approach</Link>
-          </article>
-        </div>
+          <Link className="preview-row" to="/approach">
+            <span className="preview-index">03</span>
+            <span className="preview-copy"><strong>How Vinci.One works</strong><span>A practical, operation-first process that keeps systems useful and focused on actual business needs.</span></span>
+            <span className="preview-arrow" aria-hidden="true">↗</span>
+          </Link>
+        </nav>
       </section>
     </div>
   )

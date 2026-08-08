@@ -10,7 +10,7 @@ const PRODUCTS = [
     status: 'In development'
   },
   {
-    title: 'HROP',
+    title: 'HROP Version 1',
     label: 'HR & Operations System',
     desc: 'A practical HR and operations platform for employee records, attendance, field workforce management and organisational workflows.',
     bullets: ['Employee management','Attendance','Field attendance','Operational controls','HR reporting'],
@@ -41,20 +41,25 @@ const PRODUCTS = [
 
 export default function Products() {
   return (
-    <section id="products" className="section products container">
-      <div className="section-head">
-        <div>
-          <h2>Systems Already Being Built</h2>
-          <p className="muted">Vinci.One is being developed through real applications built around practical business problems.</p>
-        </div>
+    <section id="products" className="page-section products container">
+      <header className="page-header products-header">
+        <p className="section-kicker">Product portfolio</p>
+        <h1>Systems Already Being Built</h1>
+        <p className="page-lead">Vinci.One is being developed through real applications built around practical business problems.</p>
+      </header>
+
+      <div className="flagship-label">
+        <span>Flagship system</span>
+        <span>Intelligent business analysis</span>
       </div>
 
       <div className="products-grid">
-        {PRODUCTS.map(p => <ProductCard key={p.title} {...p} />)}
+        {PRODUCTS.map((p, index) => <ProductCard key={p.title} {...p} index={String(index + 1).padStart(2, '0')} featured={index === 0} />)}
 
         <div className="other-systems">
-          <h3>Other operational systems and automations</h3>
-          <p className="muted">Salary advance / loan approval workflows, referral partner CRM, GST reconciliation concepts, catalogue systems, reporting automation, Google Workspace automation, process and SOP systems.</p>
+          <p className="section-kicker">Extended work</p>
+          <h2>Other operational systems and automations</h2>
+          <p>Salary advance / loan approval workflows, referral partner CRM, GST reconciliation concepts, catalogue systems, reporting automation, Google Workspace automation, process and SOP systems.</p>
         </div>
       </div>
     </section>

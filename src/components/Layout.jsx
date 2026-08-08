@@ -5,12 +5,13 @@ import Nav from './Nav'
 export default function Layout({ children }) {
   return (
     <div className="site-root">
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <Nav />
       {children}
-      <footer className="site-footer footer-extended">
+      <footer className="site-footer">
         <div className="container footer-grid">
           <div className="footer-brand">
-            <div className="brand">VINCI<span className="brand-dot">.</span>ONE</div>
+            <Link className="brand" to="/" aria-label="Vinci.One home">VINCI<span className="brand-dot">.</span>ONE</Link>
             <div className="tag">Business Applications • Automation • Intelligence</div>
           </div>
 
