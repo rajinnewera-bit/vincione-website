@@ -498,9 +498,7 @@
 .capability-detail p,
 .process-content p,
 .card-desc,
-.other-systems > p:last-child,
-.founder-background > p:last-child,
-.founder-philosophy > p:nth-child(2) {
+.other-systems > p:last-child {
   margin: 0;
   color: var(--color-muted);
   line-height: 1.72;
@@ -796,78 +794,134 @@
   line-height: 1.12;
 }
 
-.founder-grid {
-  display: grid;
-  grid-template-columns: 7fr 4fr;
-  gap: clamp(3rem, 7vw, 6rem);
-  padding-top: var(--space-7);
+.founder-manifesto {
+  padding-block: clamp(3.5rem, 8vw, 7rem);
 }
 
-.founder-bio blockquote {
+.founder-manifesto > h2 {
+  max-width: 17ch;
   margin: 0;
-  max-width: 19ch;
   color: var(--color-text);
-  font-size: clamp(2rem, 4.2vw, 4rem);
+  font-size: clamp(2.5rem, 5.4vw, 5.25rem);
   font-weight: 520;
-  letter-spacing: -0.04em;
-  line-height: 1.12;
+  letter-spacing: -0.05em;
+  line-height: 1.02;
 }
 
-.founder-background {
-  max-width: 39rem;
-  margin-top: var(--space-8);
-  padding-top: var(--space-5);
-  border-top: 1px solid var(--color-border-strong);
+.founder-manifesto-copy,
+.founder-editorial-section {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-5);
 }
 
-.founder-background .section-kicker,
-.founder-philosophy .section-kicker,
-.capability-areas .section-kicker {
-  margin: 0 0 var(--space-5);
+.founder-manifesto-copy {
+  margin-top: clamp(3rem, 7vw, 6rem);
 }
 
-.founder-aside {
-  padding-top: var(--space-2);
+.founder-origin {
+  grid-column: 2 / 7;
 }
 
-.founder-philosophy {
+.founder-purpose {
+  grid-column: 8 / -1;
   padding-left: var(--space-5);
   border-left: 1px solid var(--color-accent);
 }
 
-.founder-philosophy strong {
-  display: block;
-  margin-top: var(--space-6);
-  color: var(--color-text);
-  font-size: 1.05rem;
-  font-weight: 560;
-  line-height: 1.6;
-}
-
-.founder-philosophy .method-discipline {
-  margin: var(--space-5) 0 0;
+.founder-origin p,
+.founder-purpose p,
+.founder-section-copy p {
+  margin: 0;
   color: var(--color-muted);
-  line-height: 1.72;
+  line-height: 1.75;
 }
 
-.capability-areas {
-  margin-top: var(--space-7);
+.founder-origin p + p,
+.founder-purpose p + p,
+.founder-section-copy p + p {
+  margin-top: var(--space-5);
+}
+
+.founder-origin .founder-emphasis,
+.founder-purpose .founder-thesis,
+.founder-section-copy .founder-emphasis,
+.founder-section-copy .founder-thesis {
+  color: var(--color-text);
+  font-weight: 560;
+}
+
+.founder-origin .founder-bridge {
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.founder-purpose .founder-thesis,
+.founder-section-copy .founder-thesis {
+  margin-top: var(--space-6);
   padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border-strong);
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+  line-height: 1.55;
+}
+
+.founder-editorial-section {
+  padding-block: clamp(3.5rem, 7vw, 6rem);
   border-top: 1px solid var(--color-border-strong);
 }
 
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
+.founder-editorial-section > header,
+.founder-editorial-section > h2 {
+  grid-column: 1 / 6;
+  align-self: start;
+  margin: 0;
 }
 
-.skills-grid span {
-  padding: 0.5rem 0.7rem;
-  color: var(--color-muted);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  font-size: 0.78rem;
+.founder-editorial-section > header .section-kicker {
+  margin: 0 0 var(--space-5);
+}
+
+.founder-editorial-section > header h2,
+.founder-direction > h2 {
+  max-width: 12ch;
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(2rem, 3.8vw, 3.75rem);
+  font-weight: 520;
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+}
+
+.founder-background > h2 {
+  padding-top: 0.35rem;
+}
+
+.founder-section-copy {
+  grid-column: 7 / -1;
+  max-width: 38rem;
+}
+
+.founder-closing {
+  padding-block: clamp(5rem, 11vw, 9rem) clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--color-accent);
+}
+
+.founder-closing .section-kicker {
+  margin: 0 0 var(--space-6);
+}
+
+.founder-closing h2 {
+  max-width: 12ch;
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 520;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
 }
 
 .contact-grid {
@@ -1149,7 +1203,6 @@
   .page-header,
   .capability-intro,
   .product-card.featured,
-  .founder-grid,
   .contact-grid,
   .footer-grid {
     grid-template-columns: 1fr;
@@ -1264,13 +1317,33 @@
     gap: var(--space-5);
   }
 
-  .founder-grid,
   .contact-grid {
     gap: var(--space-8);
   }
 
-  .founder-background {
-    margin-top: var(--space-8);
+  .founder-manifesto-copy,
+  .founder-editorial-section {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-origin,
+  .founder-purpose,
+  .founder-editorial-section > header,
+  .founder-editorial-section > h2,
+  .founder-section-copy {
+    grid-column: 1;
+  }
+
+  .founder-purpose {
+    margin-top: var(--space-7);
+  }
+
+  .founder-editorial-section {
+    gap: var(--space-7);
+  }
+
+  .founder-section-copy {
+    max-width: var(--content-reading);
   }
 
   .form-row {
@@ -1313,6 +1386,18 @@
     align-items: flex-start;
     flex-direction: column;
     gap: var(--space-2);
+  }
+
+  .founder-purpose {
+    padding-left: var(--space-4);
+  }
+
+  .founder-manifesto > h2 {
+    font-size: clamp(2.35rem, 12vw, 3.25rem);
+  }
+
+  .founder-closing h2 {
+    font-size: clamp(2.8rem, 14vw, 4rem);
   }
 
   .contact-details dl > div {
