@@ -2,16 +2,41 @@ import React, { useState } from 'react'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', company: '', contact: '', message: '' })
+  const [submission, setSubmission] = useState({ status: 'idle', message: '' })
 
   function update(e) {
     setForm(f => ({ ...f, [e.target.name]: e.target.value }))
+    if (submission.status !== 'idle') setSubmission({ status: 'idle', message: '' })
   }
 
-  function mailtoFallback(e) {
+  async function submitEnquiry(e) {
     e.preventDefault()
-    const subject = encodeURIComponent('Vinci.One — Discuss a business problem')
-    const body = encodeURIComponent(`Name: ${form.name}\nCompany: ${form.company}\nContact: ${form.contact}\n\nProblem:\n${form.message}`)
-    window.location.href = `mailto:rajdeep@vincione.in?subject=${subject}&body=${body}`
+    const website = e.currentTarget.elements.website.value
+    setSubmission({ status: 'loading', message: '' })
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, website }),
+      })
+      const result = await response.json().catch(() => ({}))
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Your query could not be submitted right now. Please try again.')
+      }
+
+      setForm({ name: '', company: '', contact: '', message: '' })
+      setSubmission({
+        status: 'success',
+        message: "Thank you. Your query has been submitted successfully. We'll be in touch soon.",
+      })
+    } catch (error) {
+      setSubmission({
+        status: 'error',
+        message: error.message || 'Your query could not be submitted right now. Please try again.',
+      })
+    }
   }
 
   return (
@@ -23,19 +48,30 @@ export default function Contact() {
       </header>
 
       <div className="contact-grid">
-        <form onSubmit={mailtoFallback} className="contact-form" aria-label="Contact form">
+        <form onSubmit={submitEnquiry} className="contact-form" aria-label="Contact form">
           <div className="form-row">
-            <label>Name<input name="name" autoComplete="name" value={form.name} onChange={update} /></label>
-            <label>Company / Organisation<input name="company" autoComplete="organization" value={form.company} onChange={update} /></label>
+            <label>Name<input name="name" autoComplete="name" maxLength={120} required value={form.name} onChange={update} /></label>
+            <label>Company / Organisation<input name="company" autoComplete="organization" maxLength={160} required value={form.company} onChange={update} /></label>
           </div>
-          <label>Email / Phone<input name="contact" autoComplete="email" value={form.contact} onChange={update} /></label>
+          <label>Email / Phone<input name="contact" autoComplete="email" maxLength={160} required value={form.contact} onChange={update} /></label>
           <label>
             What problem are you trying to solve?
-            <textarea name="message" rows={6} value={form.message} onChange={update} />
+            <textarea name="message" rows={6} maxLength={4000} required value={form.message} onChange={update} />
           </label>
+          <div className="form-honeypot" aria-hidden="true">
+            <label>Website<input name="website" autoComplete="off" tabIndex={-1} /></label>
+          </div>
 
           <div className="form-actions">
-            <button className="btn primary" type="submit">Start the Conversation</button>
+            <button className="btn primary" type="submit" disabled={submission.status === 'loading'}>
+              {submission.status === 'loading' && <span className="submit-spinner" aria-hidden="true" />}
+              {submission.status === 'loading' ? 'Submitting…' : 'Submit Your Query'}
+            </button>
+            <p className="form-assurance">We&apos;ll review your message and get back to you soon.</p>
+          </div>
+
+          <div className={`form-message${submission.status !== 'idle' ? ` ${submission.status}` : ''}`} aria-live="polite" role={submission.status === 'error' ? 'alert' : 'status'}>
+            {submission.message}
           </div>
         </form>
 
