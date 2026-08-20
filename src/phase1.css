@@ -785,13 +785,21 @@
   text-transform: uppercase;
 }
 
-.approach-statement strong {
+.approach-statement-copy strong {
+  display: block;
   max-width: 24ch;
   color: var(--color-text);
   font-size: clamp(1.8rem, 3.5vw, 3.5rem);
   font-weight: 520;
   letter-spacing: -0.04em;
   line-height: 1.12;
+}
+
+.approach-statement-copy p {
+  max-width: 42rem;
+  margin: var(--space-5) 0 0;
+  color: var(--color-muted);
+  line-height: 1.72;
 }
 
 .founder-manifesto {

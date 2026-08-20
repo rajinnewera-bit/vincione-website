@@ -31,7 +31,10 @@ export default function Approach() {
 
       <div className="approach-statement">
         <span>Operating principle</span>
-        <strong>Technology should remove friction from a business—not introduce another layer of it.</strong>
+        <div className="approach-statement-copy">
+          <strong>The best business system is one that progressively needs less of your attention.</strong>
+          <p>It should understand the routine, handle what it can, surface what it cannot, and bring people in where judgement begins.</p>
+        </div>
       </div>
     </section>
   )
