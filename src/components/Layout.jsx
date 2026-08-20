@@ -24,7 +24,7 @@ export default function Layout({ children }) {
           </nav>
 
           <div className="footer-contact">
-            <a href="mailto:rajinnnewera@gmail.com">rajinnnewera@gmail.com</a>
+            <a href="mailto:rajdeep@vincione.in">rajdeep@vincione.in</a>
             <a href="https://www.linkedin.com/in/rajdeep-dutta-59ba36394/" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
         </div>

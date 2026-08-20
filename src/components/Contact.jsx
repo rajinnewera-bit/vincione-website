@@ -11,7 +11,7 @@ export default function Contact() {
     e.preventDefault()
     const subject = encodeURIComponent('Vinci.One — Discuss a business problem')
     const body = encodeURIComponent(`Name: ${form.name}\nCompany: ${form.company}\nContact: ${form.contact}\n\nProblem:\n${form.message}`)
-    window.location.href = `mailto:rajinnnewera@gmail.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:rajdeep@vincione.in?subject=${subject}&body=${body}`
   }
 
   return (
@@ -42,7 +42,7 @@ export default function Contact() {
         <div className="contact-details">
           <p className="section-kicker">Direct contact</p>
           <dl>
-            <div><dt>Email</dt><dd><a href="mailto:rajinnnewera@gmail.com">rajinnnewera@gmail.com</a></dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:rajdeep@vincione.in">rajdeep@vincione.in</a></dd></div>
             <div><dt>Phone</dt><dd><a href="tel:+919678139208">+91 96781 39208</a></dd></div>
             <div><dt>Location</dt><dd>Guwahati, Assam, India</dd></div>
           </dl>
