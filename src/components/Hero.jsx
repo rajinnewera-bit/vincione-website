@@ -1,18 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 export default function Hero() {
   return (
-    <section className="hero-section container" aria-label="Hero">
-      <div className="hero-grid">
-        <div className="eyebrow">BUSINESS SYSTEMS • AUTOMATION • INTELLIGENCE</div>
-        <h1>Business problems deserve better than another spreadsheet.</h1>
-        <div className="hero-support">
+    <section className="problem-section container" aria-labelledby="home-problem-title">
+      <div className="problem-grid">
+        <h2 id="home-problem-title">Business problems deserve better than another spreadsheet.</h2>
+        <div className="problem-support">
           <p className="lead">Vinci.One designs practical business applications, automation and intelligent systems around the way organisations actually work.</p>
-          <div className="hero-actions">
-            <Link className="btn primary" to="/what-we-build">Explore What We Build</Link>
-            <Link className="text-link" to="/contact">Discuss a Business Problem <span aria-hidden="true">→</span></Link>
-          </div>
           <div className="founder-led">Founder-led <span /> Built from real operating experience</div>
         </div>
       </div>

@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
+import HomeShowcase from '../components/HomeShowcase'
 
 export default function Home() {
   return (
     <div className="home-page">
+      <HomeShowcase />
+
       <Hero />
 
       <section className="page-preview container" aria-labelledby="home-paths-title">

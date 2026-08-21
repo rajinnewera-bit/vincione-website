@@ -253,16 +253,16 @@
   width: 100%;
 }
 
-.hero-section {
-  position: relative;
-  padding-block: clamp(4.5rem, 9vw, 7rem) clamp(3.5rem, 7vw, 5.5rem);
+.problem-section {
+  padding-block: clamp(4rem, 8vw, 6.5rem);
+  border-top: 1px solid var(--color-border);
 }
 
-.hero-grid {
+.problem-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--space-5);
-  align-items: end;
+  align-items: start;
 }
 
 .eyebrow,
@@ -281,7 +281,6 @@
   margin-bottom: var(--space-6);
 }
 
-.hero-grid h1,
 .page-header h1 {
   margin: 0;
   color: var(--color-text);
@@ -291,14 +290,20 @@
   line-height: 0.96;
 }
 
-.hero-grid h1 {
+.problem-grid h2 {
   grid-column: 1 / 9;
+  margin: 0;
   max-width: 9.8ch;
+  color: var(--color-text);
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 560;
+  letter-spacing: -0.055em;
+  line-height: 0.96;
 }
 
-.hero-support {
+.problem-support {
   grid-column: 9 / -1;
-  padding-bottom: 0.4rem;
+  align-self: end;
 }
 
 .lead,
@@ -312,14 +317,6 @@
 
 .lead {
   margin: 0;
-}
-
-.hero-actions {
-  margin-top: var(--space-6);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-4) var(--space-5);
 }
 
 .founder-led {
@@ -336,6 +333,71 @@
   width: 2rem;
   height: 1px;
   background: var(--color-border-strong);
+}
+
+.cinematic-hero {
+  padding-block: clamp(2.5rem, 5vw, 4.5rem) clamp(3.5rem, 6vw, 5rem);
+}
+
+.cinematic-hero-copy {
+  margin-bottom: clamp(2rem, 3.5vw, 3rem);
+}
+
+.cinematic-hero-copy > .eyebrow {
+  margin-bottom: var(--space-5);
+}
+
+.cinematic-hero-proposition {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-5);
+  align-items: end;
+}
+
+.cinematic-hero-proposition h1 {
+  grid-column: 1 / 8;
+  margin: 0;
+  max-width: 13ch;
+  color: var(--color-text);
+  font-size: clamp(2.5rem, 4.7vw, 4.75rem);
+  font-weight: 550;
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+}
+
+.cinematic-hero-support {
+  grid-column: 9 / -1;
+}
+
+.cinematic-hero-support > p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: clamp(0.95rem, 1.25vw, 1.05rem);
+  line-height: 1.65;
+}
+
+.cinematic-hero-actions {
+  margin-top: var(--space-5);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+}
+
+.cinematic-hero-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--color-bg);
+  border-block: 1px solid var(--color-border-strong);
+}
+
+.cinematic-hero-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: var(--color-bg);
 }
 
 .page-preview {
@@ -1154,11 +1216,11 @@
     display: grid;
   }
 
-  .hero-grid h1 {
+  .problem-grid h2 {
     grid-column: 1 / 9;
   }
 
-  .hero-support {
+  .problem-support {
     grid-column: 9 / -1;
   }
 
@@ -1206,7 +1268,8 @@
     width: min(var(--content-wide), calc(100% - 2rem));
   }
 
-  .hero-grid,
+  .problem-grid,
+  .cinematic-hero-proposition,
   .page-preview,
   .page-header,
   .capability-intro,
@@ -1217,8 +1280,10 @@
   }
 
   .eyebrow,
-  .hero-grid h1,
-  .hero-support,
+  .problem-grid h2,
+  .problem-support,
+  .cinematic-hero-proposition h1,
+  .cinematic-hero-support,
   .preview-intro,
   .preview-list,
   .page-header .section-kicker,
@@ -1230,13 +1295,30 @@
     grid-column: 1;
   }
 
-  .hero-grid h1,
+  .cinematic-hero-proposition {
+    gap: var(--space-5);
+  }
+
+  .cinematic-hero-support {
+    max-width: var(--content-reading);
+  }
+
+  .problem-grid h2,
   .page-header h1 {
     font-size: clamp(2.8rem, 13vw, 4.5rem);
   }
 
-  .hero-support {
-    margin-top: var(--space-6);
+  .problem-support {
+    margin-top: var(--space-7);
+  }
+
+  .cinematic-hero-copy {
+    margin-bottom: var(--space-6);
+  }
+
+  .cinematic-hero-proposition h1 {
+    max-width: 15ch;
+    font-size: clamp(2.4rem, 9vw, 3.5rem);
   }
 
   .founder-led {
@@ -1372,13 +1454,13 @@
 }
 
 @media (max-width: 30rem) {
-  .hero-actions {
+  .cinematic-hero-actions {
     align-items: stretch;
     flex-direction: column;
   }
 
-  .hero-actions .btn,
-  .hero-actions .text-link {
+  .cinematic-hero-actions .btn,
+  .cinematic-hero-actions .text-link {
     width: 100%;
   }
 
